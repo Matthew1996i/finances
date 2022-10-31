@@ -1,12 +1,10 @@
 const index = async (_req, res, next) => {
   try {
     return res.status(200).json({
-      API: 'Backend Anime Control',
+      API: 'Backend Finances Api',
       Version: '1.0.0',
       Developer: 'Matheus Pereira',
-      Website: 'Anime Control API',
-      Documentation:
-        '',
+      Documentation: '',
     });
   } catch (err) {
     return next(err);
