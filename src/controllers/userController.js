@@ -88,8 +88,6 @@ module.exports = {
         id: checkUser.id,
       });
 
-      console.log('aqui');
-
       return res.status(200).json({ token });
     } catch (error) {
       return res.status(500).json(error);
@@ -196,6 +194,16 @@ module.exports = {
   },
 
   async getUser(req, res) {
-    return res.json({ message: 'ok' });
+    try {
+      const id = req.uuid;
+      const users = await User.findAll({
+        where: {
+          id,
+        },
+      });
+      return res.json(users);
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
