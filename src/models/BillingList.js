@@ -7,7 +7,7 @@ class BillingList extends Model {
         user_id: DataTypes.INTEGER,
         title: DataTypes.STRING,
         date: DataTypes.DATE,
-        value: DataTypes.FLOAT,
+        value: DataTypes.DECIMAL(10, 2),
         due_date: DataTypes.DATE,
         due_limit_date: DataTypes.DATE,
         status: {

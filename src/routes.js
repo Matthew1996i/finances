@@ -9,7 +9,7 @@ routes.use(express.json());
 
 routes.use('/', rootRouter);
 routes.use('/user', userRouter);
-routes.use('/file', xlsxRouter);
+routes.use('/billing', xlsxRouter);
 
 routes.use('/auth', authRouter);
 

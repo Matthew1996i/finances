@@ -16,8 +16,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 const xlsxRouter = Router();
 
+xlsxRouter.post('/billingLists', authMiddleware, uploadXlsxController.index);
+
 xlsxRouter.post(
-  '/uploadFile',
+  '/billingListUpload',
   authMiddleware,
   upload.single('file'),
   uploadXlsxController.store

@@ -5,6 +5,22 @@ const fs = require('fs');
 const BillingList = require('../models/BillingList');
 
 module.exports = {
+  async index(req, res) {
+    try {
+      const id = req.uuid;
+
+      const billingList = await BillingList.findAll({
+        where: {
+          user_id: id,
+        },
+      });
+
+      res.status(200).json(billingList);
+    } catch (err) {
+      console.error(error);
+      res.status(500).json({ error: error });
+    }
+  },
   async store(req, res) {
     try {
       const id = req.uuid;
@@ -14,11 +30,13 @@ module.exports = {
       const csvValues = await stream.pipe(streamCsv);
 
       const listFormat = await csvValues.map((item) => {
+        const value = parseFloat(item.value.replace(',', '.')).toFixed(2);
+
         return {
           date: Date(item.date),
           type: item.type,
           title: item.title,
-          value: parseFloat(item.value),
+          value,
           status: item.status,
           user_id: id,
           due_date: Date(item['due date']),
