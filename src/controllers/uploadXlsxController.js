@@ -17,7 +17,6 @@ module.exports = {
 
       res.status(200).json(billingList);
     } catch (err) {
-      console.error(error);
       res.status(500).json({ error: error });
     }
   },
@@ -48,7 +47,6 @@ module.exports = {
 
       res.status(200).json(dataCreated);
     } catch (error) {
-      console.error(error);
       res.status(500).json({ error: error });
     }
   },
