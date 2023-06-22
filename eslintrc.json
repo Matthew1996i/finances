@@ -1,11 +1,12 @@
 {
+  "parser": "@typescript-eslint/parser",
   "env": {
     "commonjs": true,
     "es2021": true,
     "node": true
   },
   "extends": ["airbnb-base", "prettier"],
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "@typescript-eslint"],
   "parserOptions": {
     "ecmaVersion": 12
   },

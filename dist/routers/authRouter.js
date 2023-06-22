@@ -1,4 +1,4 @@
-const { Router } = require('express');
+"use strict";const { Router } = require('express');
 const authMiddleware = require('../middlewares/auth');
 
 const { authController } = require('../controllers')
